@@ -1,9 +1,9 @@
 {
-    "family": FAMILY,
+    "family": demo-task,
     "containerDefinitions": [
         {
             "image": "REPOSITORY_URI:BUILD_NUMBER",
-            "name": NAME,
+            "name": demo-container,
 	    "essential": true,
             "portMappings": [
                 {
@@ -14,10 +14,9 @@
         }
     ],
     "cpu": "256",
-    "memory": "512",
+    "memory": "200",
     "requiresCompatibilities": [
-             "FARGATE"
+             "EC2"
     ],
-    "networkMode": "awsvpc",
-    "executionRoleArn": ROLE_ARN 
+    "networkMode": "bridge" 
 }
