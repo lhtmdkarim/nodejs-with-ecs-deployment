@@ -31,7 +31,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = sh 'docker build -t "${IMAGE_REPO_NAME}:${IMAGE_TAG}" .'
+           dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
         }
       }
     }
@@ -41,7 +41,7 @@ pipeline {
      steps{  
          script {
 			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
-                    	sh 'docker push "${REPOSITORY_URI}:${IMAGE_TAG}"'
+                    	dockerImage.push()
                 	}
          }
         }
