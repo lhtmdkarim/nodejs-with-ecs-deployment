@@ -22,7 +22,7 @@ pipeline {
       steps{
         script {
           sh 'npm install'
-	  // sh 'npm test -- --watchAll=false'
+	  sh 'npm test -- --watchAll=false'
         }
       }
     }
@@ -31,7 +31,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+          dockerImage = docker build -t "${IMAGE_REPO_NAME}:${IMAGE_TAG}" .
         }
       }
     }
