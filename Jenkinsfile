@@ -12,7 +12,7 @@ pipeline {
         IMAGE_REPO_NAME="demo-ecr"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = credentials('demo.aws.credentials')
+	registryCredential = "demo.aws.credentials"
     }
    
     stages {
@@ -40,7 +40,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + ${registryCredential}) {
+			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
                     	dockerImage.push()
                 	}
          }
