@@ -49,6 +49,7 @@ stages:
           imageToDeploy: 'nodejsdemo543.azurecr.io/lhtmdkarimnodejswithecsdeployment:$(tag)'
           containerAppName: 'democapp'
           containerAppEnvironment: 'managedEnvironment-demo-8947'
+          runtimeStack: 'node:16'
           targetPort: '3000'
           location: 'East US'
           ingress: 'external'
