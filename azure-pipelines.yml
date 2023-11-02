@@ -37,14 +37,14 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-          - task: AzureContainerApps@1
-            inputs:
-              azureSubscription: 'My Azure subscription 1(606f1af4-cfee-4286-8450-4579541b0832)'
-              acrName: 'nodejsdemo543'
-              acrUsername: 'nodejsdemo543'
-              acrPassword: 'PuwdoQLpXbokhjE84WnJsbAn5Izr3Q8eoNaKBLCXgw+ACRBFopyq'
-              containerAppName: 'democapp'
-              resourceGroup: 'demo'
-              containerAppEnvironment: 'managedEnvironment-demo-8947'
-              targetPort: '3000'
-              ingress: 'external'
+    - task: AzureContainerApps@1
+      inputs:
+          azureSubscription: 'My Azure subscription 1(606f1af4-cfee-4286-8450-4579541b0832)'
+          acrName: 'nodejsdemo543'
+          acrUsername: 'nodejsdemo543'
+          acrPassword: 'PuwdoQLpXbokhjE84WnJsbAn5Izr3Q8eoNaKBLCXgw+ACRBFopyq'
+          containerAppName: 'democapp'
+          resourceGroup: 'demo'
+          containerAppEnvironment: 'managedEnvironment-demo-8947'
+          targetPort: '3000'
+          ingress: 'external'
