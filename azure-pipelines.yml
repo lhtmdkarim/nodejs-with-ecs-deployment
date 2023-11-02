@@ -39,13 +39,11 @@ stages:
           $(tag)
     - task: AzureContainerApps@1
       inputs:
-          appSourcePath: 'imageToDeploy'
           azureSubscription: 'My Azure subscription 1(606f1af4-cfee-4286-8450-4579541b0832)'
           acrName: 'nodejsdemo543'
           acrUsername: 'nodejsdemo543'
           acrPassword: 'PuwdoQLpXbokhjE84WnJsbAn5Izr3Q8eoNaKBLCXgw+ACRBFopyq'
           resourceGroup: 'demo'
-          imageToBuild: 'nodejsdemo543.azurecr.io/lhtmdkarimnodejswithecsdeployment:$(tag)'
           imageToDeploy: 'nodejsdemo543.azurecr.io/lhtmdkarimnodejswithecsdeployment:$(tag)'
           containerAppName: 'democapp'
           containerAppEnvironment: 'managedEnvironment-demo-8947'
