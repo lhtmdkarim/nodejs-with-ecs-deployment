@@ -14,7 +14,7 @@ variables:
   imageRepository: 'lhtmdkarimnodejswithecsdeployment'
   containerRegistry: 'nodejsdemo543.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '$(Commit)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -45,8 +45,8 @@ stages:
           acrUsername: 'nodejsdemo543'
           acrPassword: 'PuwdoQLpXbokhjE84WnJsbAn5Izr3Q8eoNaKBLCXgw+ACRBFopyq'
           resourceGroup: 'demo'
-          imageToBuild: 'nodejsdemo543.azurecr.io/demorepofornodejs:$(tag)'
-          imageToDeploy: 'nodejsdemo543.azurecr.io/demorepofornodejs:$(tag)'
+          imageToBuild: 'nodejsdemo543.azurecr.io/lhtmdkarimnodejswithecsdeployment:$(tag)'
+          imageToDeploy: 'nodejsdemo543.azurecr.io/lhtmdkarimnodejswithecsdeployment:$(tag)'
           containerAppName: 'democapp'
           containerAppEnvironment: 'managedEnvironment-demo-8947'
           targetPort: '3000'
