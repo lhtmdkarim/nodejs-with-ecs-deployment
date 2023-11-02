@@ -14,7 +14,7 @@ variables:
   imageRepository: 'lhtmdkarimnodejswithecsdeployment'
   containerRegistry: 'nodejsdemo543.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Commit)'
+  tag: '$(Build.BuildId)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
